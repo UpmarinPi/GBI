@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "GBI Launcher",
+  "version": "0.0.1",
+  "description": "Press a shortcut key to open GBI (Good Bye Incompetence) in a new tab.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "open-gbi": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+G",
+        "mac": "Command+Shift+G"
+      },
+      "description": "Open GBI in a new tab"
+    }
+  }
+}
