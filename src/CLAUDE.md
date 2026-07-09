@@ -4,8 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working within 
 
 See the [repository root CLAUDE.md](../CLAUDE.md) for overall project status, tech stack, and commands.
 
-**Before reading or writing any file in this directory, read [CODING_STYLE.md](CODING_STYLE.md) for naming
-conventions.**
+**Before reading or writing any file in this directory, read [CODING_STYLE.md](CODING_STYLE.md) for naming and
+formatting conventions (tabs, Allman braces, mandatory `{}` on conditionals — enforced by `npm run lint`).**
 
 ## Status
 

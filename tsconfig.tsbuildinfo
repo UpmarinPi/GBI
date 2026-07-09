@@ -1,1 +1,1 @@
-{"root":["./src/main.tsx","./src/vite-env.d.ts","./src/app/app.tsx"],"version":"5.9.3"}
+{"root":["./src/main.tsx","./src/vite-env.d.ts","./src/app/app.tsx","./src/audio/audiomanager.ts","./src/entities/entitybase.ts","./src/game-mode/gamemodebase.ts","./src/input/inputmanager.ts","./src/loaders/assetloader.ts","./src/physics/physicsworld.ts","./src/player/playercontroller.ts","./src/render/renderer.ts","./src/scenes/scenebase.ts","./src/ui/hud.tsx"],"version":"5.9.3"}

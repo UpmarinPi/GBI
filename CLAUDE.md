@@ -39,8 +39,12 @@ than re-rendering React per frame.
 
 ```bash
 npm install three @dimforge/rapier3d-compat
-npm install -D vitest eslint
+npm install -D vitest
 ```
+
+ESLint is already configured (`eslint.config.js`) — it enforces the formatting rules in
+[src/CODING_STYLE.md](src/CODING_STYLE.md) (tab indentation, Allman brace style, mandatory `{}` on
+conditionals) and is the source of truth if this doc and ESLint ever disagree.
 
 ## Common commands
 
@@ -49,7 +53,7 @@ npm install     # install dependencies
 npm start        # start Vite dev server (alias of `npm run dev`)
 npm run build      # production build -> dist/ (static, deployable anywhere, no server required)
 npm run preview      # serve the production build locally to sanity-check the static output
-npm run lint            # lint (not configured yet)
+npm run lint            # ESLint (tabs / Allman braces / mandatory {} on conditionals — see src/CODING_STYLE.md)
 npm run test              # run test suite (not configured yet — vitest)
 npm run test -- path/to/file.test.ts   # run a single test file (once vitest is added)
 ```

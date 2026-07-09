@@ -1,3 +1,4 @@
-export function App() {
-  return <div id="app" />;
+export function App()
+{
+	return <div id="app" />;
 }
