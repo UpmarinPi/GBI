@@ -1,4 +1,4 @@
-const GBI_URL = "https://upmarinpi.github.io/GBI/";
+importScripts("shared.js");
 
 chrome.commands.onCommand.addListener((command) => {
   if (command === "open-gbi") {
