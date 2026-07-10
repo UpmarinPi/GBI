@@ -1,14 +1,17 @@
 import { EntityBase } from "../entities/EntityBase";
+import { CameraManager } from "../render/CameraManager";
 
 // The world's ground is conceptually an infinite plane at y = 0; not modeled as
 // data here yet — that lands with physics/render implementation.
 export class World
 {
 	private readonly entities: Map<string, EntityBase>;
+	readonly cameraManager: CameraManager;
 
-	constructor()
+	constructor(cameraManager: CameraManager = new CameraManager())
 	{
 		this.entities = new Map();
+		this.cameraManager = cameraManager;
 	}
 
 	addEntity(entity: EntityBase): void
