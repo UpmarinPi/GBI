@@ -1,26 +1,29 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working within `assets/`.
+このファイルは、`assets/` 内で作業する際に Claude Code (claude.ai/code) に向けたガイダンスを提供します。
 
-See the [repository root CLAUDE.md](../CLAUDE.md) for overall project status, tech stack, and commands.
+プロジェクト全体の状態、技術スタック、コマンドについては [リポジトリルートの CLAUDE.md](../CLAUDE.md) を参照。
 
-## Status
+## 状態
 
-No assets exist yet. This document defines the conventions to follow once assets are added.
+アセットはまだ存在しない。このドキュメントは、アセットが追加される際に従うべき規約を定義する。
 
-## Why this matters
+## なぜ重要か
 
-The project's core requirement is **instant startup** in the browser. Asset format and size choices here
-directly determine load time, so prefer compressed/GPU-friendly formats over convenience formats.
+このプロジェクトの中核要件は、ブラウザでの**即座の起動**である。ここでのアセットフォーマットとサイズの選択が
+ロード時間を直接左右するため、利便性重視のフォーマットよりも圧縮済み/GPUフレンドリーなフォーマットを優先すること。
 
-## Conventions
+## 規約
 
-- **3D models**: `.glb` (binary glTF), Draco-compressed geometry where the model is complex enough to benefit.
-- **Textures**: prefer KTX2/Basis Universal (GPU-compressed, loads directly into VRAM) over raw PNG/JPG for
-  anything used in the Three.js scene. Reserve PNG/JPG for UI images rendered by React/DOM, not the 3D scene.
-- **Audio**: compressed formats (`.mp3`/`.ogg`), not uncompressed `.wav`, except for very short SFX where
-  decode-latency matters more than size.
-- **Naming**: lowercase, hyphen-separated (e.g. `player-character.glb`, `level-01-heightmap.ktx2`).
-- **No unoptimized source files committed as runtime assets** — if you keep original/high-res source files
-  (e.g. `.blend`, uncompressed `.png`), put them under a clearly separate subfolder so the build doesn't
-  accidentally ship them.
+- **3Dモデルは使用しない** — このゲームは2D専用（ルートの CLAUDE.md 参照）。見た目はすべて Three.js の
+  正射影カメラ上に配置するスプライト（テクスチャ付き平面）で表現し、`.glb` などの3Dモデル形式は導入しない。
+- **テクスチャ**: スプライトの標準フォーマットは **PNG**（透過が必要なキャラクター/オブジェクト用にアルファ
+  チャンネル付き）。UI画像用に限定する制約はない — 2Dシーンの主要な描画物そのものがテクスチャだから。
+  タイルセットや背景など大きな画像でロード時間が問題になる場合に限り、KTX2/Basis Universal（GPU圧縮）への
+  切り替えを検討する。
+- **オーディオ**: 圧縮フォーマット（`.mp3`/`.ogg`）を使用し、非圧縮の `.wav` は使わない。ただし、デコード遅延がサイズより
+  重要な非常に短い SFX は例外とする。
+- **命名規則**: 小文字、ハイフン区切り（例: `bob-idle.png`、`level-01-tileset.png`）。
+- **最適化前のソースファイルをランタイムアセットとしてコミットしない** — 非圧縮/高解像度のソース画像
+  （例: `.psd`、編集用の巨大な原寸 PNG）を保持する場合は、ビルドが誤ってそれらを出荷しないよう、明確に分離した
+  サブフォルダに置くこと。
